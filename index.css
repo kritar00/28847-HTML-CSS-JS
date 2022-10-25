@@ -332,7 +332,8 @@ hr {
 .mgi_projects {
   overflow: hidden;
 }
-.mgi_projects_wrapper {
+.mgi_projects_wrapper,
+.mgi_clients_wrapper {
   transition: all 0.3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
   overflow: hidden;
   /* display: flex; */

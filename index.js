@@ -1,6 +1,9 @@
 const container = document.querySelector(".mgi_projects_container")
+const clientsContainer = document.querySelector(".mgi_clients_container")
 const projects = document.querySelector(".mgi_projects_wrapper")
+const clients = document.querySelector(".mgi_clients_wrapper")
 const item = document.querySelectorAll(".mgi_projects_item")
+const clientItem = document.querySelectorAll(".mgi_clients_item")
 const btnLeft = document.getElementById("btn-left--carousel")
 const btnRight = document.getElementById("btn-right--carousel")
 
@@ -48,18 +51,33 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 let count = 0;
+let count3 = 0;
 function slider(n) {
+    let m
+    if (n > 1 && n <= 4) {
+        m = 3
+    } else {
+        m = 1
+    }
     const itemWidth = container.offsetWidth / n
+    const clientItemWidth = container.offsetWidth / m
     let widthAllBox = itemWidth * item.length
+    let widthAllItem = clientItemWidth * clientItem.length
+
     projects.style.width = `${widthAllBox}px`
+    clients.style.width = `${widthAllItem}px`
     item.forEach(element => {
-        // element.style.marginLeft = '15px'
         element.style.marginRight = '20px'
         element.style.width = `${itemWidth - 20}px`
+    })
+    clientItem.forEach(element => {
+        element.style.marginRight = '20px'
+        element.style.width = `${clientItemWidth - 20}px`
     })
     let spacing = widthAllBox - itemWidth * n
     // console.log(spacing);
     projects.style.transform = `translateX(0px)`;
+    clients.style.transform = `translateX(0px)`;
     btnLeft.addEventListener('click', function () {
         count -= itemWidth
         if (count < 0) {
@@ -77,24 +95,36 @@ function slider(n) {
     })
 }
 function carousel() {
-    let n = 0;
+    let n;
+    let m;
     if (media[0].matches) {
         n = 4
+        m = 3
     }
     else if (media[1].matches) {
         n = 2
+        m = 3
     }
     else {
         n = 1
+        m = 1
     }
     const itemWidth = container.offsetWidth / n
+    const clientItemWidth = container.offsetWidth / m
     count += itemWidth
+    count3 += clientItemWidth
     let widthAllBox = itemWidth * item.length
+    let widthAllItem = clientItemWidth * clientItem.length
     let spacing = widthAllBox - itemWidth * n
+    let clientSpacing = widthAllItem - clientItemWidth * m
     if (count > spacing) {
         count = 0
     }
+    if (count3 > clientSpacing) {
+        count3 = 0
+    }
     projects.style.transform = `translateX(${-count}px)`
+    clients.style.transform = `translateX(${-count3}px)`
     setTimeout(carousel, 3000)
 }
 
