@@ -15,19 +15,19 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <link rel="shortcut icon" href="https://zozothemes.com/html/epoint/demo/images/favicon.ico" />
   <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <title>28847</title>
 </head>
 
 <body>
-  <div class="mgi_screen_selector">
-    <input type="radio" id="mobile" name="screen_size" value="Mobile" />
+  <form name="form" class="mgi_screen_selector">
+    <input type="radio" id="mobile" name="screen_size" value="mobile" />
     <label for="mobile">Mobile</label><br />
-    <input type="radio" id="tablet" name="screen_size" value="Tablet" />
+    <input type="radio" id="tablet" name="screen_size" value="tablet" />
     <label for="tablet">Tablet</label><br />
-    <input type="radio" id="desktop" name="screen_size" value="Desktop" />
+    <input type="radio" id="desktop" name="screen_size" value="desktop" />
     <label for="desktop">Desktop</label>
-  </div>
-
+  </form>
   <section id="slider" class="mgi_slider">
     <nav id="navbar" class="mgi_navbar">
       <div class="mgi_navbar_container">
@@ -97,12 +97,15 @@
           LEARN MORE
         </button>
       </div>
-      <div class="mgi_slider_controller">
-        <button onclick="change(-1)" id="btn-left" class="btn--float btn--left-hidden" aria-label="to the left"><i
-            class="uil uil-angle-left"></i></button>
-        <button onclick="change(1)" id="btn-right" class="btn--float btn--right-hidden" aria-label="to the right"><i
-            class="uil uil-angle-right"></i></button>
-      </div>
+    </div>
+    <div class="mgi_slider_controller">
+      <button onclick="change(-1)" id="btn-left" class="btn--float btn--left-hidden" aria-label="to the left"><i
+          class="uil uil-angle-left"></i></button>
+      <button onclick="change(1)" id="btn-right" class="btn--float btn--right-hidden" aria-label="to the right"><i
+          class="uil uil-angle-right"></i></button>
+      <span class="w3-badge dot w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+      <span class="w3-badge dot w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+      <span class="w3-badge dot w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
     </div>
   </section>
   <section id="about-us" class="mgi_about-us mgi_section">
@@ -215,55 +218,71 @@
     </div>
   </section>
   <section id="projects" class="mgi_projects mgi_section">
-    <div class="mgi_container mgi_container--custom-width">
+    <div class="mgi_projects_container">
       <h1>Our Latest Projects</h1>
       <p>
         We Build Awesome and Beautiful Premium HTML, Wordpress, Magento, Joomla,
         E-commerce Themes and Email Templates.
       </p>
       <hr />
-      <div class="mgi_projects_wrapper">
-        <div class="mgi_projects_item">
-          <a href="#">
-            <img src="https://zozothemes.com/html/epoint/demo/images/content/portfolio/set3/2.jpg" alt="">
-          </a>
-          <h4>Ohio Shopper</h4>
-          <p>Photography</p>
+      <div class="custom-width">
+        <div class="mgi_projects_wrapper">
+          <div class="mgi_projects_item">
+            <a href="#">
+              <img src="https://zozothemes.com/html/epoint/demo/images/content/portfolio/set3/2.jpg" alt="">
+            </a>
+            <h4>Ohio Shopper</h4>
+            <p>Photography</p>
+          </div>
+          <div class="mgi_projects_item">
+            <a href="#">
+              <img src="https://zozothemes.com/html/epoint/demo/images/content/portfolio/set3/2.jpg" alt="">
+            </a>
+            <h4>Ohio Shopper</h4>
+            <p>Photography</p>
+          </div>
+          <div class="mgi_projects_item">
+            <a href="#">
+              <img src="https://zozothemes.com/html/epoint/demo/images/content/portfolio/set3/2.jpg" alt="">
+            </a>
+            <h4>Ohio Shopper</h4>
+            <p>Photography</p>
+          </div>
+          <div class="mgi_projects_item">
+            <a href="#">
+              <img src="https://zozothemes.com/html/epoint/demo/images/content/portfolio/set3/2.jpg" alt="">
+            </a>
+            <h4>Ohio Shopper</h4>
+            <p>Photography</p>
+          </div>
+          <div class="mgi_projects_item">
+            <a href="#">
+              <img src="https://zozothemes.com/html/epoint/demo/images/content/portfolio/set3/2.jpg" alt="">
+            </a>
+            <h4>Ohio Shopper</h4>
+            <p>Photography</p>
+          </div>
+          <div class="mgi_projects_item">
+            <a href="#">
+              <img src="https://zozothemes.com/html/epoint/demo/images/content/portfolio/set3/2.jpg" alt="">
+            </a>
+            <h4>Ohio Shopper</h4>
+            <p>Photography</p>
+          </div>
+          <div class="mgi_projects_item">
+            <a href="#">
+              <img src="https://zozothemes.com/html/epoint/demo/images/content/portfolio/set3/2.jpg" alt="">
+            </a>
+            <h4>Ohio Shopper</h4>
+            <p>Photography</p>
+          </div>
         </div>
-        <div class="mgi_projects_item">
-          <a href="#">
-            <img src="https://zozothemes.com/html/epoint/demo/images/content/portfolio/set3/2.jpg" alt="">
-          </a>
-          <h4>Ohio Shopper</h4>
-          <p>Photography</p>
+        <div class="mgi_projects_slider-controller">
+          <button id="btn-left--carousel" class="mgi_projects_btn btn-left" aria-label="to the left"><i
+              class="uil uil-angle-left"></i></button>
+          <button id="btn-right--carousel" class="mgi_projects_btn btn-right" aria-label="to the right"><i
+              class="uil uil-angle-right"></i></button>
         </div>
-        <div class="mgi_projects_item">
-          <a href="#">
-            <img src="https://zozothemes.com/html/epoint/demo/images/content/portfolio/set3/2.jpg" alt="">
-          </a>
-          <h4>Ohio Shopper</h4>
-          <p>Photography</p>
-        </div>
-        <div class="mgi_projects_item">
-          <a href="#">
-            <img src="https://zozothemes.com/html/epoint/demo/images/content/portfolio/set3/2.jpg" alt="">
-          </a>
-          <h4>Ohio Shopper</h4>
-          <p>Photography</p>
-        </div>
-        <div class="mgi_projects_item">
-          <a href="#">
-            <img src="https://zozothemes.com/html/epoint/demo/images/content/portfolio/set3/2.jpg" alt="">
-          </a>
-          <h4>Ohio Shopper</h4>
-          <p>Photography</p>
-        </div>
-      </div>
-      <div>
-        <button id="btn-left--carousel" class="mgi_btn" aria-label="to the left"><i
-            class="uil uil-angle-left"></i></button>
-        <button id="btn-right--carousel" class="mgi_btn" aria-label="to the right"><i
-            class="uil uil-angle-right"></i></button>
       </div>
     </div>
   </section>
