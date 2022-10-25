@@ -4,11 +4,21 @@ const item = document.querySelectorAll(".mgi_projects_item")
 const btnLeft = document.getElementById("btn-left--carousel")
 const btnRight = document.getElementById("btn-right--carousel")
 
-var radios = document.forms["form"].elements["screen_size"]
+let radios = document.forms["form"].elements["screen_size"]
+let body = document.getElementsByTagName("BODY")[0]
 for (radio in radios) {
     radios[radio].onclick = function () {
         if (this.value === "mobile") {
-            document.getElementsByTagName("BODY")[0].style.width = "767px"
+            body.removeAttribute("class")
+            body.classList.add("mobile-view")
+        }
+        else if (this.value === "tablet") {
+            body.removeAttribute("class")
+            body.classList.add("tablet-view")
+        }
+        else {
+            body.removeAttribute("class")
+            body.classList.add("desktop-view")
         }
     }
 }
@@ -92,32 +102,12 @@ let slideIndex = 1
 showSlide(slideIndex);
 function change(n) {
     slideIndex += n
-    // slideOut(slideIndex, n)
     showSlide(slideIndex)
 }
 function currentDiv(n) {
-    slideIndex = n
-    // slideOut(slideIndex, n)
-    showSlide(slideIndex)
+    showSlide(slideIndex = n)
 }
-// function slideOut(n, m) {
-//     let x = document.getElementsByClassName("mgi_slider_wrapper")
-//     if (n > x.length) {
-//         x[x.length - 1].classList.add('slide-out-left')
-//         // slideIndex = 1
-//     }
-//     else if (n < 1) {
-//         x[0].classList.add('slide-out-left')
-//         // slideIndex = x.length
-//     } else if (m > 0) {
-//         x[slideIndex - 2].classList.add('slide-out-left')
-//     }
-//     else {
-//         x[slideIndex].classList.add('slide-out-left')
-//     }
-// }
 function showSlide(n) {
-    console.log(n);
     let x = document.getElementsByClassName("mgi_slider_wrapper")
     var dots = document.getElementsByClassName("dot");
     if (n > x.length) {

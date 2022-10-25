@@ -57,6 +57,18 @@ hr {
   --sub-line-height: 1.7em;
   --titles-font: "Roboto Condensed", sans-serif;
 }
+.mobile-view {
+  max-width: 768px;
+  container-type: inline-size;
+}
+.tablet-view {
+  max-width: 1279px;
+  container-type: inline-size;
+}
+.desktop-view {
+  min-width: 1279px;
+  container-type: inline-size;
+}
 .white {
   background-color: white;
 }
@@ -344,7 +356,7 @@ hr {
   right: -30px;
 }
 
-@media all and (max-width: 768px) {
+@container (max-width: 768px) {
   .btn-left,
   .btn-right {
     display: none;
@@ -403,7 +415,7 @@ hr {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-@media (min-width: 768px) and (max-width: 1279px) {
+@container (max-width: 1279px) {
   .mgi_projects_container {
     width: 90%;
   }
@@ -456,8 +468,7 @@ hr {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
-@media all and (min-width: 1279px) {
+@container (min-width: 1279px) {
   .mgi_projects_container {
     width: 70%;
   }
