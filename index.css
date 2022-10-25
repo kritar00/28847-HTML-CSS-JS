@@ -57,7 +57,30 @@ hr {
   --sub-line-height: 1.7em;
   --titles-font: "Roboto Condensed", sans-serif;
 }
-
+.white {
+  background-color: white;
+}
+.dot {
+  flex-shrink: 0;
+  display: block;
+  border: 1px solid;
+  border-color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.dots {
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  width: 30px;
+  height: 30px;
+}
 .navbar--scrolled {
   position: fixed !important;
   background-color: #fff !important;
@@ -433,11 +456,7 @@ hr {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-.mgi_slider_controller {
-  width: 30px;
-  height: 30px;
-  align-items: center;
-}
+
 @media all and (min-width: 1279px) {
   .mgi_projects_container {
     width: 70%;

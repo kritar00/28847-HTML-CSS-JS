@@ -92,29 +92,32 @@ let slideIndex = 1
 showSlide(slideIndex);
 function change(n) {
     slideIndex += n
-    slideOut(slideIndex, n)
+    // slideOut(slideIndex, n)
     showSlide(slideIndex)
 }
 function currentDiv(n) {
-    showSlide(n)
+    slideIndex = n
+    // slideOut(slideIndex, n)
+    showSlide(slideIndex)
 }
-function slideOut(n, m) {
-    let x = document.getElementsByClassName("mgi_slider_wrapper")
-    if (n > x.length) {
-        x[x.length - 1].classList.add('slide-out-left')
-        // slideIndex = 1
-    }
-    else if (n < 1) {
-        x[0].classList.add('slide-out-left')
-        // slideIndex = x.length
-    } else if (m > 0) {
-        x[slideIndex - 2].classList.add('slide-out-left')
-    }
-    else {
-        x[slideIndex].classList.add('slide-out-left')
-    }
-}
+// function slideOut(n, m) {
+//     let x = document.getElementsByClassName("mgi_slider_wrapper")
+//     if (n > x.length) {
+//         x[x.length - 1].classList.add('slide-out-left')
+//         // slideIndex = 1
+//     }
+//     else if (n < 1) {
+//         x[0].classList.add('slide-out-left')
+//         // slideIndex = x.length
+//     } else if (m > 0) {
+//         x[slideIndex - 2].classList.add('slide-out-left')
+//     }
+//     else {
+//         x[slideIndex].classList.add('slide-out-left')
+//     }
+// }
 function showSlide(n) {
+    console.log(n);
     let x = document.getElementsByClassName("mgi_slider_wrapper")
     var dots = document.getElementsByClassName("dot");
     if (n > x.length) {
@@ -125,13 +128,13 @@ function showSlide(n) {
     }
     for (let i = 0; i < x.length; i++) {
         x[i].style.display = "none"
-        x[i].classList.remove('slide-out-left', 'slide-out-right')
+        // x[i].classList.remove('slide-out-left', 'slide-out-right')
     }
     for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" w3-white", "");
+        dots[i].className = dots[i].className.replace(" white", "");
     }
     x[slideIndex - 1].style.display = "flex"
-    dots[slideIndex - 1].className += " w3-white";
+    dots[slideIndex - 1].className += " white";
 }
 
 window.onscroll = function () {
