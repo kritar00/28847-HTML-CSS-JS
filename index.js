@@ -66,7 +66,6 @@ function slider(itemDisplay) {
         element.style.width = `${threeItemWidth - 20}px`
     })
     let spacing = widthAllBox - itemWidth * itemDisplay
-    // console.log(spacing);
     projects.style.transform = `translateX(0px)`;
     clients.style.transform = `translateX(0px)`;
     btnLeft.addEventListener('click', function () {
@@ -74,7 +73,6 @@ function slider(itemDisplay) {
         if (iterate4items < 0) {
             iterate4items = spacing
         }
-        // console.log(count);
         projects.style.transform = `translateX(${-iterate4items}px)`
     })
     btnRight.addEventListener('click', function () {
@@ -86,28 +84,28 @@ function slider(itemDisplay) {
     })
 }
 function carousel() {
-    let n;
-    let m;
+    let displayItem;
+    let clientDisplayItem;
     if (media920.matches) {
-        n = 4
-        m = 3
+        displayItem = 4
+        clientDisplayItem = 3
     }
     else if (media768.matches) {
-        n = 2
-        m = 3
+        displayItem = 2
+        clientDisplayItem = 3
     }
     else {
-        n = 1
-        m = 1
+        displayItem = 1
+        clientDisplayItem = 1
     }
-    const itemWidth = container.offsetWidth / n
-    const threeItemWidth = container.offsetWidth / m
+    const itemWidth = container.offsetWidth / displayItem
+    const threeItemWidth = container.offsetWidth / clientDisplayItem
     iterate4items += itemWidth
     iterate3items += threeItemWidth
     let widthAllBox = itemWidth * item.length
     let widthAllItem = threeItemWidth * clientItem.length
-    let spacing = widthAllBox - itemWidth * n
-    let clientSpacing = widthAllItem - threeItemWidth * m
+    let spacing = widthAllBox - itemWidth * displayItem
+    let clientSpacing = widthAllItem - threeItemWidth * clientDisplayItem
     if (iterate4items > spacing) {
         iterate4items = 0
     }
