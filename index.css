@@ -507,6 +507,9 @@ hr {
   .mgi_navbar--wrapper {
     padding: 0;
   }
+  .mgi_navbar--wrapper a {
+    margin: auto;
+  }
   .mgi_footer_subcribe-field input {
     width: 100%;
   }
@@ -623,9 +626,7 @@ hr {
   .mgi_navbar_logo {
     display: none;
   }
-  .mgi_navbar_logo--light {
-    display: block;
-  }
+  .mgi_navbar_logo--light,
   .mgi_slider_caption {
     display: block;
   }
@@ -689,9 +690,7 @@ hr {
   .mgi_navbar_logo {
     display: none;
   }
-  .mgi_navbar_logo--light {
-    display: block;
-  }
+  .mgi_navbar_logo--light,
   .mgi_slider_caption {
     display: block;
   }
@@ -699,7 +698,6 @@ hr {
     color: white;
     text-transform: uppercase;
     font-size: 12px;
-
     margin: 0 10px;
     font-weight: 700;
   }
@@ -736,8 +734,11 @@ hr {
   .btn-right {
     display: none;
   }
-  .btn--float {
-    top: 10%;
+  .mgi_navbar--wrapper {
+    padding: 0;
+  }
+  .mgi_footer_subcribe-field input {
+    width: 100%;
   }
   .mgi_navbar {
     background-color: #000;
@@ -748,23 +749,31 @@ hr {
   .mgi_container {
     width: 90%;
   }
-  .mgi_navbar_logo--light {
+  .mgi_help_caption {
+    padding-bottom: 30px;
+  }
+  .mgi_btn--black {
     display: block;
+    margin-left: auto;
   }
   .mgi_navbar_menu {
     height: 100%;
     position: fixed;
     left: 0;
     top: 0;
-    width: 250px;
+    width: 400px;
     padding-top: 60px;
     background-color: #000;
     transition: 0.5s;
-    transform: translateX(-250px);
+    transform: translateX(-400px);
     z-index: 200;
   }
+  .mgi_navbar_logo--light,
   .navbar--scrolled .mgi_navbar_logo {
     display: block;
+  }
+  .navbar--scrolled {
+    padding: 12px 0;
   }
   .mgi_navbar_list {
     display: block !important;
@@ -774,35 +783,64 @@ hr {
     padding: 0 12px;
   }
   .mgi_navbar_link {
-    color: white;
+    color: white !important;
     text-transform: uppercase;
     font-size: 13px;
     font-weight: 700;
+    margin: 0 10px;
+    padding: 6px 0;
   }
   .mgi_slider_wrapper {
     width: 80%;
   }
-
-  .mgi_slider_caption {
-    display: none !important;
-  }
+  .mgi_slider_caption,
   .hamburger {
     display: block !important;
   }
-  .mgi_services_wrapper {
+  .mgi_services_wrapper,
+  .mgi_footer_info-wrapper {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-@container (max-width: 1279px) {
+@container (min-width: 767px) and (max-width: 1279px) {
   .mgi_projects_container,
   .mgi_clients_container {
-    width: 90%;
+    width: 90% !important;
   }
-  .btn--float {
-    top: 10%;
+  .mgi_help_caption {
+    padding-bottom: 30px;
+  }
+  .mgi_footer_part--top1 {
+    grid-area: top1;
+  }
+  .mgi_footer_part--mid {
+    grid-area: mid;
+  }
+  .mgi_footer_part--top2 {
+    grid-area: top2;
+  }
+  .mgi_footer_part--bottom {
+    grid-area: bottom;
+    width: 50%;
+  }
+  .mgi_footer_subcribe-field input {
+    width: 100%;
+  }
+  .mgi_footer_info-wrapper {
+    grid-template-areas:
+      "top1 top1 top2 top2"
+      "mid mid mid mid"
+      "bottom bottom bottom bottom";
+    gap: 10px;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+  }
+  .mgi_btn--black {
+    display: block;
+    margin-left: auto;
   }
   .mgi_container {
-    width: 98%;
+    width: 97% !important;
   }
   .mgi_navbar_list {
     display: flex;
@@ -810,9 +848,7 @@ hr {
   .mgi_navbar_logo {
     display: none;
   }
-  .mgi_navbar_logo--light {
-    display: block;
-  }
+  .mgi_navbar_logo--light,
   .mgi_slider_caption {
     display: block;
   }
@@ -820,9 +856,11 @@ hr {
     color: white;
     text-transform: uppercase;
     font-size: 12px;
+
     margin: 0 10px;
     font-weight: 700;
   }
+
   .hamburger {
     display: none;
   }
@@ -856,8 +894,17 @@ hr {
   .mgi_container {
     width: 70%;
   }
-  .btn--float {
-    top: 10%;
+  .mgi_footer_info-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 8px;
+  }
+  .mgi_btn--black {
+    margin-left: 60px;
+  }
+  .mgi_help_container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   .mgi_navbar_list {
     display: flex;
@@ -869,12 +916,10 @@ hr {
   .mgi_slider_caption {
     display: block;
   }
-
   .mgi_navbar_link {
     color: white;
     text-transform: uppercase;
     font-size: 12px;
-
     margin: 0 10px;
     font-weight: 700;
   }

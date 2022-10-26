@@ -70,7 +70,7 @@ function slider(itemDisplay) {
     projects.style.transform = `translateX(0px)`;
     clients.style.transform = `translateX(0px)`;
     btnLeft.addEventListener('click', function () {
-        count -= itemWidth
+        iterate4items -= itemWidth
         if (iterate4items < 0) {
             iterate4items = spacing
         }
@@ -78,7 +78,7 @@ function slider(itemDisplay) {
         projects.style.transform = `translateX(${-iterate4items}px)`
     })
     btnRight.addEventListener('click', function () {
-        count += itemWidth
+        iterate4items += itemWidth
         if (iterate4items > spacing) {
             iterate4items = 0
         }
@@ -139,7 +139,6 @@ function showSlide(n) {
     }
     for (let i = 0; i < x.length; i++) {
         x[i].style.display = "none"
-        // x[i].classList.remove('slide-out-left', 'slide-out-right')
     }
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" white", "");
