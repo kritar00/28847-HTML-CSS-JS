@@ -456,7 +456,6 @@ hr {
 }
 .mgi_footer_part_item {
   display: flex;
-  align-items: center;
   gap: 8px;
   margin-bottom: 15px;
 }
@@ -553,12 +552,13 @@ hr {
   }
   .mgi_navbar_list li {
     transition: 0.3s;
-    padding: 0 12px;
+    padding: 12px 12px;
+    border-bottom: 0.3px solid var(--sub-text-color);
   }
   .mgi_navbar_link {
     color: white !important;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     margin: 0 10px;
     padding: 6px 0;
@@ -674,7 +674,7 @@ hr {
   }
   .mgi_footer_info-wrapper {
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 8px;
+    gap: 15px;
   }
   .mgi_btn--black {
     margin-left: 60px;
@@ -896,7 +896,7 @@ hr {
   }
   .mgi_footer_info-wrapper {
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 8px;
+    gap: 15px;
   }
   .mgi_btn--black {
     margin-left: 60px;
