@@ -75,9 +75,10 @@ hr {
   min-width: 1279px;
 }
 .white {
-  background-color: white;
+  background-color: white !important;
 }
 .dot {
+  background-color: transparent;
   flex-shrink: 0;
   display: block;
   border: 1px solid;
@@ -386,6 +387,7 @@ hr {
 }
 .mgi_services_wrapper {
   display: grid;
+  visibility: hidden;
 }
 .mgi_projects {
   overflow: hidden;
@@ -873,6 +875,16 @@ hr {
     opacity: 0;
   }
 }
+@keyframes fadeUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
 .slide-in-right {
   animation: slideInRight;
   animation-duration: 1s;
@@ -892,4 +904,28 @@ hr {
 .slide-out-left {
   animation: slideOutLeft;
   animation-duration: 1s;
+}
+.fade-up {
+  animation: fadeUp;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  visibility: visible;
+}
+.delay1 {
+  animation-delay: 100ms;
+}
+.delay2 {
+  animation-delay: 200ms;
+}
+.delay3 {
+  animation-delay: 300ms;
+}
+.delay4 {
+  animation-delay: 400ms;
+}
+.delay5 {
+  animation-delay: 500ms;
+}
+.delay6 {
+  animation-delay: 600ms;
 }

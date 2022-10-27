@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     carousel()
 })
 
+
 let iterate4items = 0;
 let iterate3items = 0;
 function slider(itemDisplay) {
@@ -122,39 +123,41 @@ function carousel() {
     clients.style.transform = `translateX(${-iterate3items}px)`
     setTimeout(carousel, 3000)
 }
-
 let slideIndex = 1
 showSlide(slideIndex);
-function change(n) {
-    slideIndex += n
+document.getElementById("btn-left").addEventListener('click', change)
+document.getElementById("btn-right").addEventListener('click', change)
+document.querySelectorAll(".dot").forEach(item => {
+    item.addEventListener('click', currentDiv)
+})
+
+function change() {
+    slideIndex = slideIndex + parseInt(this.value)
     showSlide(slideIndex)
 }
-function currentDiv(n) {
-    showSlide(slideIndex = n)
+function currentDiv() {
+    showSlide(slideIndex = parseInt(this.value))
 }
-function showSlide(n) {
-    let x = document.getElementsByClassName("mgi_slider_wrapper")
+function showSlide(slideNumber) {
+    let sliderWrapper = document.getElementsByClassName("mgi_slider_wrapper")
     var dots = document.getElementsByClassName("dot");
-    if (n > x.length) {
+    if (slideNumber > sliderWrapper.length) {
         slideIndex = 1
     }
-    else if (n < 1) {
-        slideIndex = x.length
+    else if (slideNumber < 1) {
+        slideIndex = sliderWrapper.length
     }
-    for (let i = 0; i < x.length; i++) {
-        x[i].style.display = "none"
+    for (let i = 0; i < sliderWrapper.length; i++) {
+        sliderWrapper[i].style.display = "none"
     }
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" white", "");
     }
-    x[slideIndex - 1].style.display = "flex"
+    sliderWrapper[slideIndex - 1].style.display = "flex"
     dots[slideIndex - 1].className += " white";
 }
 
 window.onscroll = function () {
-    mouseScroll();
-};
-function mouseScroll() {
     if (
         document.body.scrollTop > 80 ||
         document.documentElement.scrollTop > 80
@@ -165,7 +168,7 @@ function mouseScroll() {
             .getElementById("navbar")
             .classList.remove("navbar--scrolled");
     }
-}
+};
 document.getElementById("hamburger").addEventListener("click", expand);
 function expand() {
     document.getElementById("navbar-menu").classList.toggle("expand");
@@ -195,3 +198,22 @@ function btnAnimation(event) {
         rightBtn.classList.add("btn--right")
     }
 }
+
+servicesWrapper = document.querySelector('.mgi_services_wrapper')
+servicesFeatures = document.querySelectorAll('.mgi_services_feature')
+const observer = new IntersectionObserver(entries => {
+    // servicesWrapper.style.display = "grid"
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // for (let i = 0; i < servicesFeatures; i++) {
+            //     servicesFeatures[i].classList.add('fade-up', `delay${i + 1}`)
+            // }
+            servicesFeatures[i].classList.add('fade-up')
+            return
+        }
+        for (let i = 0; i < servicesFeatures; i++) {
+            servicesFeatures[i].classList.remove('fade-up', `delay${i + 1}`)
+        }
+    })
+})
+observer.observe(servicesWrapper)

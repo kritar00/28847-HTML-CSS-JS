@@ -62,7 +62,7 @@
     </nav>
     <div class="mgi_container">
       <div class="mgi_slider_wrapper">
-        <h1 class="mgi_slider_title slide-in-right">WE ARE CREATIVE</h1>
+        <h2 class="mgi_slider_title slide-in-right">WE ARE CREATIVE</h2>
         <p class="mgi_slider_caption slide-in-left">
           We believe in Simple, Creative & Flexible Design Standards.
           Unlimited features, elements and fast and friendly support gives
@@ -73,7 +73,7 @@
         </button>
       </div>
       <div class="mgi_slider_wrapper">
-        <h1 class="mgi_slider_title slide-in-right">WE ARE SIMPLE</h1>
+        <h2 class="mgi_slider_title slide-in-right">WE ARE SIMPLE</h2>
         <p class="mgi_slider_caption slide-in-left">
           We believe in Simple, Creative & Flexible Design Standards.
           Unlimited features, elements and fast and friendly support gives
@@ -84,7 +84,7 @@
         </button>
       </div>
       <div class="mgi_slider_wrapper">
-        <h1 class="mgi_slider_title slide-in-right">WE ARE POWERFUL </h1>
+        <h2 class="mgi_slider_title slide-in-right">WE ARE POWERFUL </h2>
         <p class="mgi_slider_caption slide-in-left">
           We believe in Simple, Creative & Flexible Design Standards.
           Unlimited features, elements and fast and friendly support gives
@@ -96,14 +96,14 @@
       </div>
     </div>
     <div class="mgi_slider_controller">
-      <button onclick="change(-1)" id="btn-left" class="btn--float btn--left-hidden" aria-label="to the left"><i
+      <button value="-1" id="btn-left" class="btn--float btn--left-hidden" aria-label="to the left"><i
           class="uil uil-angle-left"></i></button>
-      <button onclick="change(1)" id="btn-right" class="btn--float btn--right-hidden" aria-label="to the right"><i
+      <button value="1" id="btn-right" class="btn--float btn--right-hidden" aria-label="to the right"><i
           class="uil uil-angle-right"></i></button>
       <div class="dots">
-        <span class="dot" onclick="currentDiv(1)"></span>
-        <span class="dot" onclick="currentDiv(2)"></span>
-        <span class="dot" onclick="currentDiv(3)"></span>
+        <button aria-label="first slider" class="dot" value="1"></button>
+        <button aria-label="second slider" class="dot" value="2"></button>
+        <button aria-label="third slider" class="dot" value="3"></button>
       </div>
     </div>
   </section>
@@ -309,8 +309,8 @@
                 eu
                 fugiat nulla pariatur.
               </h3>
-              <h3 class="mgi_clients_client">Sue San</h4>
-                <p class="mgi_clients_source">Google</p>
+              <h3 class="mgi_clients_client">Sue San</h3>
+              <p class="mgi_clients_source">Google</p>
             </div>
           </div>
           <div class="mgi_clients_item">
@@ -321,8 +321,8 @@
                 eu
                 fugiat nulla pariatur.
               </h3>
-              <h3 class="mgi_clients_client">Sue San</h4>
-                <p class="mgi_clients_source">Google</p>
+              <h3 class="mgi_clients_client">Sue San</h3>
+              <p class="mgi_clients_source">Google</p>
             </div>
           </div>
           <div class="mgi_clients_item">
@@ -333,8 +333,8 @@
                 eu
                 fugiat nulla pariatur.
               </h3>
-              <h3 class="mgi_clients_client">Sue San</h4>
-                <p class="mgi_clients_source">Google</p>
+              <h3 class="mgi_clients_client">Sue San</h3>
+              <p class="mgi_clients_source">Google</p>
             </div>
           </div>
           <div class="mgi_clients_item">
@@ -345,13 +345,12 @@
                 eu
                 fugiat nulla pariatur.
               </h3>
-              <h3 class="mgi_clients_client">Sue San</h4>
-                <p class="mgi_clients_source">Google</p>
+              <h3 class="mgi_clients_client">Sue San</h3>
+              <p class="mgi_clients_source">Google</p>
             </div>
           </div>
         </div>
       </div>
-      <div></div>
     </div>
   </section>
   <section class="mgi_section">
@@ -428,9 +427,7 @@
       </div>
     </div>
   </footer>
-  <script type="text/javascript" src="./index.js">
-    console.log("script loaded");
-  </script>
+  <script type="text/javascript" src="./index.js"></script>
 </body>
 
 </html>
