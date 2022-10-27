@@ -9,19 +9,24 @@ const btnRight = document.getElementById("btn-right--carousel")
 
 let radios = document.forms["form"].elements["screen_size"]
 let body = document.getElementsByTagName("BODY")[0]
-for (radio in radios) {
-    radios[radio].onclick = function () {
-        body.removeAttribute("class")
-        body.classList.add(`${this.value}-view`)
-    }
-}
+
 var media920 = window.matchMedia('(min-width: 920px)')
 var media768 = window.matchMedia('(min-width: 768px)')
+
 document.addEventListener('DOMContentLoaded', function () {
+    for (radio in radios) {
+        radios[radio].onclick = function () {
+            body.removeAttribute("class")
+            body.classList.add(`${this.value}-view`)
+            if (this.value === "mobile") {
+                slider(1)
+            }
+        }
+    }
     window.addEventListener('resize', function () {
-        if (window.innerWidth >= 920) {
+        if (window.innerWidth >= 920 && body.offsetWidth >= 920) {
             slider(4);
-        } else if (window.innerWidth > 768) {
+        } else if (window.innerWidth > 768 && body.offsetWidth > 768) {
             slider(2);
             body.style.marginLeft = null
         } else {
@@ -31,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // console.log(bodyWidth);
     if (media920.matches) {
         slider(4);
     } else if (media768.matches) {
@@ -86,11 +92,11 @@ function slider(itemDisplay) {
 function carousel() {
     let displayItem;
     let clientDisplayItem;
-    if (media920.matches) {
+    if (media920.matches && body.offsetWidth >= 920) {
         displayItem = 4
         clientDisplayItem = 3
     }
-    else if (media768.matches) {
+    else if (media768.matches && body.offsetWidth > 768) {
         displayItem = 2
         clientDisplayItem = 3
     }
