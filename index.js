@@ -50,46 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 let iterate4items = 0;
 let iterate3items = 0;
-function slider(itemDisplay) {
-    let threeItemDisplay
-    if (itemDisplay > 1 && itemDisplay <= 4) {
-        threeItemDisplay = 3
-    } else {
-        threeItemDisplay = 1
-    }
-    const itemWidth = container.offsetWidth / itemDisplay
-    const threeItemWidth = container.offsetWidth / threeItemDisplay
-    let widthAllBox = itemWidth * item.length
-    let widthAllItem = threeItemWidth * clientItem.length
-
-    projects.style.width = `${widthAllBox}px`
-    clients.style.width = `${widthAllItem}px`
-    item.forEach(element => {
-        element.style.marginRight = '20px'
-        element.style.width = `${itemWidth - 20}px`
-    })
-    clientItem.forEach(element => {
-        element.style.marginRight = '20px'
-        element.style.width = `${threeItemWidth - 20}px`
-    })
-    let spacing = widthAllBox - itemWidth * itemDisplay
-    projects.style.transform = `translateX(0px)`;
-    clients.style.transform = `translateX(0px)`;
-    btnLeft.addEventListener('click', function () {
-        iterate4items -= itemWidth
-        if (iterate4items < 0) {
-            iterate4items = spacing
-        }
-        projects.style.transform = `translateX(${-iterate4items}px)`
-    })
-    btnRight.addEventListener('click', function () {
-        iterate4items += itemWidth
-        if (iterate4items > spacing) {
-            iterate4items = 0
-        }
-        projects.style.transform = `translateX(${-iterate4items}px)`
-    })
-}
 function carousel() {
     let displayItem;
     let clientDisplayItem;
@@ -123,6 +83,50 @@ function carousel() {
     clients.style.transform = `translateX(${-iterate3items}px)`
     setTimeout(carousel, 3000)
 }
+function slider(itemDisplay) {
+    let iterate4itemsClone = iterate4items
+    let threeItemDisplay
+    if (itemDisplay > 1 && itemDisplay <= 4) {
+        threeItemDisplay = 3
+    } else {
+        threeItemDisplay = 1
+    }
+    const itemWidth = container.offsetWidth / itemDisplay
+    const threeItemWidth = container.offsetWidth / threeItemDisplay
+    let widthAllBox = itemWidth * item.length
+    let widthAllItem = threeItemWidth * clientItem.length
+
+    projects.style.width = `${widthAllBox}px`
+    clients.style.width = `${widthAllItem}px`
+    item.forEach(element => {
+        element.style.marginRight = '20px'
+        element.style.width = `${itemWidth - 20}px`
+    })
+    clientItem.forEach(element => {
+        element.style.marginRight = '20px'
+        element.style.width = `${threeItemWidth - 20}px`
+    })
+    let spacing = widthAllBox - itemWidth * itemDisplay
+    projects.style.transform = `translateX(0px)`;
+    clients.style.transform = `translateX(0px)`;
+    btnLeft.addEventListener('click', function () {
+        iterate4itemsClone -= itemWidth
+        if (iterate4itemsClone < 0) {
+            iterate4itemsClone = spacing
+        }
+        projects.style.transform = `translateX(${-iterate4itemsClone}px)`
+        iterate4items = iterate4itemsClone
+    })
+    btnRight.addEventListener('click', function () {
+        iterate4itemsClone += itemWidth
+        if (iterate4itemsClone > spacing) {
+            iterate4itemsClone = 0
+        }
+        projects.style.transform = `translateX(${-iterate4itemsClone}px)`
+        iterate4items = iterate4itemsClone
+    })
+}
+
 let slideIndex = 1
 showSlide(slideIndex);
 document.getElementById("btn-left").addEventListener('click', change)
@@ -201,19 +205,26 @@ function btnAnimation(event) {
 
 servicesWrapper = document.querySelector('.mgi_services_wrapper')
 servicesFeatures = document.querySelectorAll('.mgi_services_feature')
-const observer = new IntersectionObserver(entries => {
+const servicesObserver = new IntersectionObserver(entries => {
     // servicesWrapper.style.display = "grid"
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // for (let i = 0; i < servicesFeatures; i++) {
-            //     servicesFeatures[i].classList.add('fade-up', `delay${i + 1}`)
-            // }
-            servicesFeatures[i].classList.add('fade-up')
+            for (let i = 0; i < servicesFeatures.length; i++) {
+                servicesFeatures[i].classList.add('fade-up', `delay${i + 1}`)
+            }
             return
-        }
-        for (let i = 0; i < servicesFeatures; i++) {
-            servicesFeatures[i].classList.remove('fade-up', `delay${i + 1}`)
         }
     })
 })
-observer.observe(servicesWrapper)
+const contactObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            for (let i = 0; i < servicesFeatures.length; i++) {
+                servicesFeatures[i].classList.add('fade-up')
+            }
+            return
+        }
+    })
+})
+servicesObserver.observe(servicesWrapper)
+contactObserver.observe(document.querySelector('.mgi_help_container'))

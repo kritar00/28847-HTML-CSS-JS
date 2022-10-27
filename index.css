@@ -885,6 +885,26 @@ hr {
     opacity: 1;
   }
 }
+@keyframes fadeInRight {
+  0% {
+    transform: translateX(-2000px);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes fadeInLeft {
+  0% {
+    transform: translateX(2000px);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
 .slide-in-right {
   animation: slideInRight;
   animation-duration: 1s;
@@ -907,6 +927,16 @@ hr {
 }
 .fade-up {
   animation: fadeUp;
+}
+.fade-in-right {
+  animation: fadeInRight;
+}
+.fade-in-left {
+  animation: fadeInLeft;
+}
+.fade-up,
+.fade-in-right,
+.fade-in-left {
   animation-duration: 1s;
   animation-fill-mode: both;
   visibility: visible;
