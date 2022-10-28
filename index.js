@@ -6,13 +6,16 @@ const item = document.querySelectorAll(".mgi_projects_item")
 const clientItem = document.querySelectorAll(".mgi_clients_item")
 const btnLeft = document.getElementById("btn-left--carousel")
 const btnRight = document.getElementById("btn-right--carousel")
+const news = document.querySelector('.mgi_news_wrapper')
+const newsItem = document.querySelectorAll(".mgi_news_item")
 
 let radios = document.forms["form"].elements["screen_size"]
 let body = document.getElementsByTagName("BODY")[0]
 
 var media920 = window.matchMedia('(min-width: 920px)')
 var media768 = window.matchMedia('(min-width: 768px)')
-
+let iterate4items = 0;
+let iterate3items = 0;
 document.addEventListener('DOMContentLoaded', function () {
     for (radio in radios) {
         radios[radio].onclick = function () {
@@ -24,19 +27,31 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     window.addEventListener('resize', function () {
+        iterate3items = 0
+        iterate4items = 0
         if (window.innerWidth >= 920 && body.offsetWidth >= 920) {
             slider(4);
         } else if (window.innerWidth > 768 && body.offsetWidth > 768) {
             slider(2);
             body.style.marginLeft = null
         } else {
-            if (document.getElementById("navbar-menu").classList.contains("expand"))
-                body.style.marginLeft = "400px"
             slider(1);
         }
     });
+    function observeBodyWidth() {
+        iterate3items = 0
+        iterate4items = 0
+        if (window.innerWidth >= 920 && body.offsetWidth >= 920) {
+            slider(4);
+        } else if (window.innerWidth > 768 && body.offsetWidth > 768) {
+            slider(2);
+            body.style.marginLeft = null
+        } else {
+            slider(1);
+        }
+    }
+    new ResizeObserver(observeBodyWidth).observe(body)
 
-    // console.log(bodyWidth);
     if (media920.matches) {
         slider(4);
     } else if (media768.matches) {
@@ -48,8 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 
-let iterate4items = 0;
-let iterate3items = 0;
+
 function carousel() {
     let displayItem;
     let clientDisplayItem;
@@ -81,6 +95,7 @@ function carousel() {
     }
     projects.style.transform = `translateX(${-iterate4items}px)`
     clients.style.transform = `translateX(${-iterate3items}px)`
+    news.style.transform = `translateX(${-iterate3items}px)`
     setTimeout(carousel, 3000)
 }
 function slider(itemDisplay) {
@@ -98,6 +113,7 @@ function slider(itemDisplay) {
 
     projects.style.width = `${widthAllBox}px`
     clients.style.width = `${widthAllItem}px`
+    news.style.width = `${widthAllItem}px`
     item.forEach(element => {
         element.style.marginRight = '20px'
         element.style.width = `${itemWidth - 20}px`
@@ -106,9 +122,14 @@ function slider(itemDisplay) {
         element.style.marginRight = '20px'
         element.style.width = `${threeItemWidth - 20}px`
     })
+    newsItem.forEach(element => {
+        element.style.marginRight = '20px'
+        element.style.width = `${threeItemWidth - 20}px`
+    })
     let spacing = widthAllBox - itemWidth * itemDisplay
     projects.style.transform = `translateX(0px)`;
     clients.style.transform = `translateX(0px)`;
+    news.style.transform = `translateX(0px)`;
     btnLeft.addEventListener('click', function () {
         iterate4itemsClone -= itemWidth
         if (iterate4itemsClone < 0) {
@@ -175,15 +196,15 @@ window.onscroll = function () {
 };
 document.getElementById("hamburger").addEventListener("click", expand);
 function expand() {
-    document.getElementById("navbar-menu").classList.toggle("expand");
-    body.style.marginLeft = "400px"
-    body.style.position = "relative"
+    body.classList.toggle("expand");
+    document.getElementById("navbar-menu").classList.add('sidebar-expand')
 }
-body.addEventListener('click', hideNavbar)
+document.addEventListener('click', hideNavbar)
 function hideNavbar(event) {
     event.stopPropagation();
     if (event.clientX > document.getElementById("navbar-menu").offsetWidth) {
-        document.getElementById("navbar-menu").classList.remove("expand");
+        document.getElementById("navbar-menu").classList.remove('sidebar-expand')
+        body.classList.remove("expand");
         body.style.marginLeft = null
     }
 }
@@ -206,7 +227,6 @@ function btnAnimation(event) {
 servicesWrapper = document.querySelector('.mgi_services_wrapper')
 servicesFeatures = document.querySelectorAll('.mgi_services_feature')
 const servicesObserver = new IntersectionObserver(entries => {
-    // servicesWrapper.style.display = "grid"
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             for (let i = 0; i < servicesFeatures.length; i++) {
@@ -219,9 +239,8 @@ const servicesObserver = new IntersectionObserver(entries => {
 const contactObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            for (let i = 0; i < servicesFeatures.length; i++) {
-                servicesFeatures[i].classList.add('fade-up')
-            }
+            document.querySelector('.mgi_help_caption').classList.add("fade-in-right")
+            document.querySelector('.mgi_btn--black').classList.add('fade-in-left')
             return
         }
     })
