@@ -26,18 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
-    window.addEventListener('resize', function () {
-        iterate3items = 0
-        iterate4items = 0
-        if (window.innerWidth >= 920 && body.offsetWidth >= 920) {
-            slider(4);
-        } else if (window.innerWidth > 768 && body.offsetWidth > 768) {
-            slider(2);
-            body.style.marginLeft = null
-        } else {
-            slider(1);
-        }
-    });
     function observeBodyWidth() {
         iterate3items = 0
         iterate4items = 0
