@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
+    window.addEventListener('resize', function () {
+        observeBodyWidth()
+    });
     function observeBodyWidth() {
         iterate3items = 0
         iterate4items = 0
